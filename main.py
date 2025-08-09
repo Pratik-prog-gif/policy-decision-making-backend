@@ -10,6 +10,10 @@ api_key = os.getenv("API_KEY")
 app = FastAPI()
 vectorstore = None
 
+@app.get("/")
+def read_root():
+    return {"message": "Backend is live and ready!"}
+
 class QueryInput(BaseModel):
     question: str
 
@@ -41,5 +45,6 @@ async def query_doc(input: QueryInput):
         return {"response": response.content, "matched_clauses": [doc.page_content for doc in docs]}
     except Exception as e:
         return JSONResponse(status_code=500, content={"error": str(e)})
+
 
 

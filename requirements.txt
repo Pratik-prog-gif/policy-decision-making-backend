@@ -1,15 +1,31 @@
+# FastAPI server dependencies
 fastapi
 uvicorn
 python-multipart
+requests
+pydantic
+pydantic-settings
+python-dotenv
+
+# LangChain core and modules
 langchain
+langchain-core
 langchain-openai
 langchain-community
 langchain-huggingface
 langchain-text-splitters
+
+# LLM and embeddings
 sentence-transformers
-faiss-cpu
 huggingface-hub
-pydantic
-pydantic-settings
-python-dotenv
-requests
+faiss-cpu
+
+# Document parsing
+pypdf                      # for PDFs
+unstructured[docx,eml,msg] # for DOCX, EML, MSG file types
+
+# Optional: improves JSON parsing, may already be installed as a sub-dependency
+orjson
+
+# Ensure compatibility
+typing-extensions
